@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Building2, School, Wrench } from "lucide-react";
 
 const stats = [
   { value: "80+", label: "Projets réalisés" },
@@ -26,20 +25,20 @@ export default function CompanyOverviewSection() {
             </div>
           </div>
 
-          <div className="max-w-140">
-            <h2 className="max-w-130 text-[24px] font-extrabold leading-[1.05] text-[#b51217] sm:text-[28px] lg:text-[34px]">
+          <div className="mx-auto max-w-140 text-center lg:mx-0 lg:pt-1 lg:text-left">
+            <h2 className="text-[17px] font-extrabold leading-[1.12] tracking-[-0.02em] text-[#9f1d1d] drop-shadow-[0_3px_4px_rgba(0,0,0,0.25)] sm:text-[22px] lg:text-[27px]">
               Entreprise de construction et
-              <br />
+              <br className="hidden sm:block" />
               rénovation de villas à Casablanca
             </h2>
 
-            <h3 className="mt-4 max-w-130 text-[19px] font-bold leading-[1.15] text-[#ef3b35] sm:text-[22px] lg:text-[28px]">
+            <h3 className="mt-6 text-[15px] font-medium leading-tight tracking-[-0.01em] text-[#e10600] sm:text-[18px] lg:text-[22px]">
               Menuiserie bois & aluminium, Vitrage et
-              <br />
-              installations électriques sur mesure
+              <br className="hidden sm:block" />
+              Installations électriques sur mesure
             </h3>
 
-            <p className="mt-4 max-w-132.5 text-[13px] leading-[1.8] text-[#3f3f46] sm:text-[14px] lg:text-[15px]">
+            <p className="mx-auto mt-6 max-w-132.5 text-[12.5px] font-normal leading-[1.75] text-[#2a2a2a] sm:text-[14px] lg:mx-0 lg:text-[15px]">
               TRV Riyad accompagne particuliers et professionnels à Casablanca
               dans leurs projets de construction, rénovation et aménagement de
               villas. Nous intervenons avec rigueur dans les domaines de la
@@ -50,9 +49,9 @@ export default function CompanyOverviewSection() {
 
             <a
               href="#expertise"
-              className="mt-6 inline-flex h-10.5 min-w-60 items-center justify-center bg-[#e10600] px-6 text-[13px] font-semibold text-white shadow-[0_6px_14px_rgba(225,6,0,0.2)] transition hover:bg-[#c90500] sm:h-11 sm:min-w-65"
+              className="mt-7 inline-flex h-9 w-full max-w-[320px] items-center justify-center bg-[#e10600] px-5 text-[12px] font-semibold text-white shadow-[0_4px_6px_rgba(0,0,0,0.25)] transition hover:bg-[#c90500] sm:max-w-116 sm:text-[12.5px]"
             >
-              <span className="text-white">Découvrir l’entreprise ↓</span>
+              <span className="text-white">Découvrir L’entreprise ↓</span>
             </a>
           </div>
         </div>
@@ -60,18 +59,18 @@ export default function CompanyOverviewSection() {
 
       <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="mx-auto max-w-295">
-          <h2 className="text-center text-[28px] font-extrabold leading-none text-[#b51217] sm:text-[34px] lg:text-[42px]">
+          <h2 className="text-center text-[27px] font-extrabold leading-none text-[#b51217] sm:text-[34px] lg:text-[42px]">
             Informations Utile
           </h2>
 
-          <div className="mx-auto mt-10 grid max-w-245 grid-cols-2 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-y-0">
+          <div className="mx-auto mt-8 grid max-w-245 grid-cols-2 gap-x-4 gap-y-9 sm:mt-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-y-0">
             {stats.map((item) => (
-              <div key={item.label} className="px-2 text-center">
-                <div className="text-[46px] font-extrabold leading-none text-[#1e1e25] sm:text-[56px] lg:text-[62px]">
+              <div key={item.label} className="px-1 text-center sm:px-2">
+                <div className="text-[38px] font-extrabold leading-none text-[#1e1e25] sm:text-[56px] lg:text-[62px]">
                   {item.value}
                 </div>
 
-                <p className="mx-auto mt-3 max-w-42.5 whitespace-pre-line text-[11px] font-medium leading-[1.45] text-[#3d3d45] sm:text-[12px] lg:text-[13px]">
+                <p className="mx-auto mt-3 max-w-42.5 whitespace-pre-line text-[10.5px] font-medium leading-[1.45] text-[#3d3d45] sm:text-[12px] lg:text-[13px]">
                   {item.label}
                 </p>
               </div>
@@ -96,18 +95,23 @@ export default function CompanyOverviewSection() {
               />
             </div>
 
-            <div className="relative z-10 -mt-10 grid items-start gap-5 lg:-mt-10 lg:grid-cols-[170px_minmax(0,1fr)] lg:gap-14">
-              <div className="mx-auto w-full max-w-42.5 lg:mx-0 lg:ml-10">
+            <div className="relative z-10 -mt-8 grid items-start gap-5 sm:-mt-10 lg:grid-cols-[170px_minmax(0,1fr)] lg:gap-14">
+              <div className="mx-auto w-full max-w-70 sm:max-w-130 lg:mx-0 lg:ml-10 lg:max-w-42.5">
                 <div className="rounded-2xl bg-white px-5 py-5 shadow-[0_10px_24px_rgba(0,0,0,0.08)]">
-                  <div className="space-y-7">
+                  <div className="grid gap-7 sm:grid-cols-3 sm:gap-5 lg:block lg:space-y-7">
                     <div>
-                      <School
-                        className="h-4.5 w-4.5 text-black"
-                        strokeWidth={2.3}
-                      />
+                      <svg viewBox="0 0 64 64" className="h-5 w-5 fill-black" aria-hidden="true">
+                        <path d="M29 6h9.5a3 3 0 0 1 3 3v9.5a3 3 0 0 1-3 3H31.5V31H26V9a3 3 0 0 1 3-3Z" />
+                        <path d="M22 27h20v30H33V44a6 6 0 0 0-12 0v13H12V38a11 11 0 0 1 10-11Z" />
+                        <path d="M5 39a9 9 0 0 1 9-9h3v27H8a3 3 0 0 1-3-3V39Z" />
+                        <path d="M47 30h3a9 9 0 0 1 9 9v15a3 3 0 0 1-3 3h-9V30Z" />
+                        <circle cx="27" cy="36" r="5.2" fill="white" />
+                      </svg>
+
                       <p className="mt-3 text-[12px] font-extrabold leading-[1.2] text-[#ef3b35]">
                         Établissements scolaires
                       </p>
+
                       <p className="mt-2 text-[10.5px] leading-[1.55] text-[#6a6a6f]">
                         Construction et rénovation d’écoles à Casablanca, avec
                         des solutions durables et conformes aux normes.
@@ -115,15 +119,17 @@ export default function CompanyOverviewSection() {
                     </div>
 
                     <div>
-                      <Building2
-                        className="h-4.5 w-4.5 text-black"
-                        strokeWidth={2.3}
-                      />
+                      <svg viewBox="0 0 64 64" className="h-5 w-5 fill-black" aria-hidden="true">
+                        <path d="M13 7h34a5 5 0 0 1 5 5v45H37V46H27v11H12a3 3 0 0 1-3-3V12a5 5 0 0 1 4-5Zm8 12v8h8v-8h-8Zm14 0v8h8v-8h-8ZM21 33v8h8v-8h-8Zm14 0v8h8v-8h-8Z" />
+                      </svg>
+
                       <p className="mt-3 text-[12px] font-extrabold leading-[1.2] text-[#ef3b35]">
                         Bureaux & espaces
-                        <br />
+                        <br className="hidden lg:block" />
+                        <span className="lg:hidden"> </span>
                         professionnels
                       </p>
+
                       <p className="mt-2 text-[10.5px] leading-[1.55] text-[#6a6a6f]">
                         Aménagement et rénovation de bureaux modernes à
                         Casablanca, avec menuiserie, vitrage et électricité sur
@@ -132,13 +138,20 @@ export default function CompanyOverviewSection() {
                     </div>
 
                     <div>
-                      <Wrench
-                        className="h-4.5 w-4.5 text-black"
-                        strokeWidth={2.3}
-                      />
+                      <svg viewBox="0 0 64 64" className="h-5 w-5 fill-black" aria-hidden="true">
+                        <path d="M23 15a9 9 0 0 1 18 0v7a5 5 0 0 1-5 5h-8a5 5 0 0 1-5-5v-7Z" />
+                        <path d="M19 26h26a5 5 0 0 1 5 5v8a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6v-8a5 5 0 0 1 5-5Z" />
+                        <path d="M10 31a4 4 0 0 1 5 4v8H9a5 5 0 0 1-5-5v-2a5 5 0 0 1 6-5Z" />
+                        <path d="M54 31a5 5 0 0 1 6 5v2a5 5 0 0 1-5 5h-6v-8a4 4 0 0 1 5-4Z" />
+                        <path d="M30 45h4v8h8a3 3 0 0 1 0 6H22a3 3 0 0 1 0-6h8v-8Z" />
+                        <path d="M22 50 11 56a3 3 0 0 1-3-5l11-6 3 5Z" />
+                        <path d="M42 50 53 56a3 3 0 0 0 3-5l-11-6-3 5Z" />
+                      </svg>
+
                       <p className="mt-3 text-[12px] font-extrabold leading-[1.2] text-[#ef3b35]">
                         Appartements & résidences
                       </p>
+
                       <p className="mt-2 text-[10.5px] leading-[1.55] text-[#6a6a6f]">
                         Travaux de rénovation d’appartements à Casablanca, avec
                         des finitions soignées et adaptées à chaque projet.
@@ -148,38 +161,38 @@ export default function CompanyOverviewSection() {
                 </div>
               </div>
 
-              <div className="w-full mt-4 lg:mt-6">
-                <div className="px-6 py-7 sm:px-9 lg:px-2 lg:py-9">
+              <div className="mt-2 w-full lg:mt-6">
+                <div className="px-0 py-6 text-center sm:px-6 sm:py-7 lg:px-2 lg:py-9 lg:text-left">
                   <p className="text-[11px] font-semibold text-[#ef3b35]">
                     Pourquoi nous choisir ?
                   </p>
 
-                  <h2 className="mt-3 max-w-190 text-[30px] font-black leading-[1.08] tracking-[-0.03em] text-[#111111] sm:text-[40px] lg:text-[28px] xl:text-[34px]">
+                  <h2 className="mt-3 text-[25px] font-black leading-[1.1] tracking-[-0.03em] text-[#111111] sm:text-[40px] lg:text-[28px] xl:text-[34px]">
                     Une Expertise Transmise De
-                    <br />
+                    <br className="hidden sm:block" />
                     Génération En Génération Dans La
-                    <br />
+                    <br className="hidden sm:block" />
                     Construction Et La Rénovation À
-                    <br />
+                    <br className="hidden sm:block" />
                     Casablanca
                   </h2>
 
-                  <p className="mt-4 max-w-190 text-[12px] leading-[1.75] text-[#66666d] sm:text-[13px] lg:text-[13px]">
+                  <p className="mx-auto mt-4 max-w-190 text-[12px] leading-[1.75] text-[#66666d] sm:text-[13px] lg:mx-0">
                     Fondée dans la continuité d’une expérience reconnue dans le
                     domaine du bâtiment, TRV Riyad perpétue un savoir-faire
                     transmis de génération en génération, en garantissant
                     qualité, rigueur et engagement dans chaque projet.
                   </p>
 
-                  <div className="mt-5 space-y-2.5">
-                    <div className="flex items-center gap-3 text-[11px] font-medium text-[#555] sm:text-[12px]">
+                  <div className="mx-auto mt-5 max-w-90 space-y-2.5 lg:mx-0">
+                    <div className="flex items-center gap-3 text-left text-[11px] font-medium text-[#555] sm:text-[12px]">
                       <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#ef3b35] text-[10px] font-bold text-white">
                         ✓
                       </span>
                       <span>Héritage et expertise reconnue</span>
                     </div>
 
-                    <div className="flex items-center gap-3 text-[11px] font-medium text-[#555] sm:text-[12px]">
+                    <div className="flex items-center gap-3 text-left text-[11px] font-medium text-[#555] sm:text-[12px]">
                       <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#ef3b35] text-[10px] font-bold text-white">
                         ✓
                       </span>

@@ -52,9 +52,7 @@ export default function Navbar() {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (typeof window !== "undefined") {
-        window.history.replaceState(null, "", `#${id}`);
-      }
+      window.history.replaceState(null, "", `#${id}`);
     }
   };
 
@@ -89,14 +87,14 @@ export default function Navbar() {
   }, []);
 
   const navClass = (id: string) =>
-    `whitespace-nowrap text-[17px] transition ${
+    `whitespace-nowrap text-[14px] xl:text-[17px] transition ${
       activeSection === id
         ? "font-semibold text-[#ef2323]"
         : "text-[#202020] hover:text-[#ef2323]"
     }`;
 
   const mobileNavClass = (id: string) =>
-    `rounded-xl px-4 py-3 text-[15px] transition ${
+    `rounded-xl px-4 py-3 text-left text-[15px] transition ${
       activeSection === id
         ? "bg-[#fff1f1] font-semibold text-[#ef2323]"
         : "text-[#1f1f1f] hover:bg-neutral-100"
@@ -108,9 +106,9 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto max-w-247 px-4">
+        <div className="mx-auto w-full max-w-247 px-3 sm:px-4">
           <div className="flex h-7 items-center justify-between text-white">
-            <div className="hidden items-center gap-2 md:flex">
+            <div className="hidden min-w-0 items-center gap-2 md:flex">
               <a
                 href="https://maps.google.com/?q=Num+10+Sidi+Moumen+Casablanca"
                 target="_blank"
@@ -133,13 +131,13 @@ export default function Navbar() {
               <a
                 href="https://www.linkedin.com/"
                 aria-label="LinkedIn"
-                className="inline-flex items-center justify-center text-white transition hover:text-white/85 className={topBarLinkClass}"
+                className="inline-flex items-center justify-center text-white transition hover:text-white/85"
               >
                 <Linkedin size={11} />
               </a>
             </div>
 
-            <div className="hidden items-center gap-2 md:flex">
+            <div className="hidden min-w-0 items-center gap-2 md:flex">
               <a href="tel:+212XXXXXXXXXX" className={topBarLinkClass}>
                 <Phone size={11} className="text-white" />
                 <span>+212 XXXXXXXXXX</span>
@@ -183,17 +181,17 @@ export default function Navbar() {
                 href="https://maps.google.com/?q=Num+10+Sidi+Moumen+Casablanca"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-[10px] font-medium text-white no-underline"
+                className="inline-flex min-w-0 items-center gap-1.5 text-[10px] font-medium text-white no-underline"
               >
-                <MapPin size={10} />
-                <span>Num 10, Sidi Moumen</span>
+                <MapPin size={10} className="shrink-0" />
+                <span className="truncate">Num 10, Sidi Moumen</span>
               </a>
 
               <button
                 type="button"
                 aria-label="Ouvrir le menu"
                 onClick={() => setOpen(true)}
-                className="inline-flex h-7 w-7 items-center justify-center rounded-md text-white"
+                className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-white"
               >
                 <Menu size={15} />
               </button>
@@ -201,8 +199,8 @@ export default function Navbar() {
           </div>
 
           <div className="relative rounded-b-2xl bg-[#f4f4f4] shadow-[0_4px_10px_rgba(0,0,0,0.30)]">
-            <div className="hidden h-14.5 items-center justify-between px-8 lg:flex">
-              <div className="flex gap-14 pr-24">
+            <div className="hidden h-14.5 items-center justify-between px-5 lg:flex xl:px-8">
+              <div className="flex min-w-0 gap-6 pr-20 xl:gap-14 xl:pr-24">
                 {leftNavItems.map((item) => (
                   <button
                     key={item.id}
@@ -214,26 +212,27 @@ export default function Navbar() {
                   </button>
                 ))}
               </div>
-              <div className="pointer-events-none absolute left-1/2 top-0 z-20 -translate-x-1/2">
-  <button
-    type="button"
-    onClick={() => handleNavClick("accueil")}
-    className="pointer-events-auto absolute left-1/2 -top-6 flex h-24 w-32 -translate-x-1/2 items-center justify-center rounded-b-xl bg-[#e10d17]"
-  >
-    <div className="overflow-hidden rounded-xl">
-      <Image
-        src="/images/logo.jpg"
-        alt="TRV Riyad"
-        width={90}
-        height={90}
-        className="object-contain"
-        priority
-      />
-    </div>
-  </button>
-</div>
 
-              <div className="flex gap-14 pl-24">
+              <div className="pointer-events-none absolute left-1/2 top-0 z-20 -translate-x-1/2">
+                <button
+                  type="button"
+                  onClick={() => handleNavClick("accueil")}
+                  className="pointer-events-auto absolute left-1/2 -top-6 flex h-22 w-28 -translate-x-1/2 items-center justify-center rounded-b-xl bg-[#e10d17] xl:h-24 xl:w-32"
+                >
+                  <div className="overflow-hidden rounded-xl">
+                    <Image
+                      src="/images/logo.jpg"
+                      alt="TRV Riyad"
+                      width={90}
+                      height={90}
+                      className="h-19.5 w-19.5 object-contain xl:h-22.5 xl:w-22.5"
+                      priority
+                    />
+                  </div>
+                </button>
+              </div>
+
+              <div className="flex min-w-0 gap-6 pl-20 xl:gap-14 xl:pl-24">
                 {rightNavItems.map((item) => (
                   <button
                     key={item.id}
@@ -247,12 +246,12 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="flex h-15 items-center justify-between px-4 lg:hidden">
+            <div className="flex h-15 items-center justify-between gap-3 px-3 sm:px-4 lg:hidden">
               <button
                 type="button"
                 aria-label="Ouvrir le menu"
                 onClick={() => setOpen(true)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-[#222]"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 bg-white text-[#222]"
               >
                 <Menu size={18} />
               </button>
@@ -260,7 +259,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => handleNavClick("accueil")}
-                className={`text-[15px] font-semibold transition ${
+                className={`min-w-0 truncate text-[15px] font-semibold transition ${
                   activeSection === "accueil"
                     ? "text-[#ef2323]"
                     : "text-[#202020]"
@@ -272,7 +271,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => handleNavClick("contact")}
-                className="inline-flex h-9 items-center justify-center rounded-full bg-[#e10d17] px-4 text-[12px] font-semibold text-white"
+                className="inline-flex h-9 shrink-0 items-center justify-center rounded-full bg-[#e10d17] px-4 text-[12px] font-semibold text-white"
               >
                 Devis
               </button>
@@ -290,23 +289,23 @@ export default function Navbar() {
         onClick={() => setOpen(false)}
       >
         <aside
-          className={`absolute right-0 top-0 h-full w-[86%] max-w-85 bg-white p-5 shadow-2xl transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-[88%] max-w-85 overflow-y-auto bg-white p-4 shadow-2xl transition-transform duration-300 sm:p-5 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="mb-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="relative h-12 w-14 overflow-hidden rounded-xl bg-[#e10d17]">
+          <div className="mb-5 flex items-center justify-between gap-3">
+            <div className="flex min-w-0 items-center gap-3">
+              <div className="relative h-12 w-14 shrink-0 overflow-hidden rounded-xl bg-[#e10d17]">
                 <Image
-                  src="/logo.jpg"
+                  src="/images/logo.jpg"
                   alt="TRV Riyad"
                   fill
                   className="object-contain p-1.5"
                 />
               </div>
-              <div>
-                <p className="text-[15px] font-bold text-[#1c1c1c]">
+              <div className="min-w-0">
+                <p className="truncate text-[15px] font-bold text-[#1c1c1c]">
                   TRV Riyad
                 </p>
                 <p className="text-[12px] text-neutral-500">Casablanca</p>
@@ -317,7 +316,7 @@ export default function Navbar() {
               type="button"
               aria-label="Fermer le menu"
               onClick={() => setOpen(false)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-[#222]"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 text-[#222]"
             >
               <X size={18} />
             </button>
@@ -329,23 +328,28 @@ export default function Navbar() {
                 href="https://maps.google.com/?q=Num+10+Sidi+Moumen+Casablanca"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2"
+                className="flex min-w-0 items-center gap-2"
               >
-                <MapPin size={14} />
-                <span>Num 10, Sidi Moumen XXXXXX</span>
+                <MapPin size={14} className="shrink-0" />
+                <span className="min-w-0 wrap-break-word">
+                  Num 10, Sidi Moumen XXXXXX
+                </span>
               </a>
 
               <a
                 href="mailto:contact@riyad.com"
-                className="flex items-center gap-2"
+                className="flex min-w-0 items-center gap-2"
               >
-                <Mail size={14} />
-                <span>contact@riyad.com</span>
+                <Mail size={14} className="shrink-0" />
+                <span className="min-w-0 wrap-break-word">contact@riyad.com</span>
               </a>
 
-              <a href="tel:+212XXXXXXXXXX" className="flex items-center gap-2">
-                <Phone size={14} className="text-white" />
-                <span>+212 XXXXXXXXXX</span>
+              <a
+                href="tel:+212XXXXXXXXXX"
+                className="flex min-w-0 items-center gap-2"
+              >
+                <Phone size={14} className="shrink-0 text-white" />
+                <span className="min-w-0 wrap-break-word">+212 XXXXXXXXXX</span>
               </a>
 
               <a
@@ -354,10 +358,12 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick("contact");
                 }}
-                className="flex items-center gap-2 no-underline"
+                className="flex min-w-0 items-center gap-2 no-underline"
               >
-                <CalendarDays size={14} />
-                <span>Prendre rendez-vous</span>
+                <CalendarDays size={14} className="shrink-0" />
+                <span className="min-w-0 wrap-break-word">
+                  Prendre rendez-vous
+                </span>
               </a>
 
               <div className="flex items-center gap-2 pt-1">
